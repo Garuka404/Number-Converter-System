@@ -210,17 +210,135 @@ public class Main {
                         break;
 
                     }
-                    break;
+
+                    System.out.print("\n\nDo you want to input number again(Y/N) ->  : ");
+                    again=scan.next().charAt(0);
+                  //  break;
                 }
 
             }
-            else if(option==3) {
+            else if(option==3){
                 System.out.println("\n+---------------------------------------+");
                 System.out.println("|           Octal Converter             |");
                 System.out.println("+---------------------------------------+");
 
+                char again='Y';
+                while(again=='Y'){
+                System.out.print("\n\nEnter an Octal number : ");
+                int num=scan.nextInt();
+                int num1,num2=num,x=1;
+                while(num2!=0){
+                    num1=num2%10;
+                    if(num1<8){
+                        num2=num2/10;;
+                    }
+                    else{
+                        x++;
+                        break;
+                    }
+                }
+                int  num3,num4=num,num5,num6;
+                String s="";
+                if(x==1){
+                    while(num4!=0){
+                        num3=num4%10;
+                        num6=num3;
+                        if(num6!=0){
+                            int y=3;
+                            while(num6!=0){
+                                num5=num6%2;
+                                s=num5+s;
+                                 y--;
+                                // System.out.print(num5+"");
+                                num6=num6/2;
+
+
+                            }
+                            int temp=num4/10;
+                            if(y==1){
+                                s="0"+s;
+                            } else if (y==2) {
+                                s="00"+s;
+                            }
+
+                        }else{
+                            s=s+"000";
+                        }
+                        num4=num4/10;
+                    }
+                    int now=Integer.parseInt(s);
+                    System.out.print("\n\tBinary number: "+now);
+                    int tot=0,count=1;int y=1,z=0;
+                    int num7=0,num8=now;
+
+
+                        while(num8!=0){
+                            z++;
+                            num7=num8%10;
+                            if(num7==1){
+
+                                while(z!=y){
+                                    count=count*2;
+                                     y++;
+                                }
+                                tot=tot+count;
+
+                                }
+                                else{
+                                }
+
+                                num8=num8/10;
+
+                        }
+
+                    System.out.print("\n\tDecimal number: "+tot);
+
+                    s="";
+                    num1=0 ;
+                    num2=tot;
+                    while(num2!=0){
+                        num1=num2%16;
+                        if(num1>=10){
+                            if(num1==10){
+                                s="A"+s;
+                            }
+                            else if(num1==11){
+                                s="B"+s;
+                            }
+                            else if(num1==12){
+                                s="C"+s;
+                            }
+                            else if(num1==13){
+                                s="D"+s;
+                            }
+                            else if(num1==14){
+                                s="E"+s;
+                            }
+                            else{
+                                s="F"+s;
+                            }
+                        }
+                        else{
+                            s=num1+s;
+                        }
+                        num2=num2/16;
+                    }
+                    System.out.print("\n\tHexadecimal number: "+s);
+                    System.out.print("\n\nDo you want to go to homepage (Y/N) ->  : ");
+                    c=scan.next().charAt(0);
+                    break;
+
+
+            } else{
+                    System.out.println("invalid input...");
+                    System.out.print("\n\nDo you want to input number again(Y/N) ->  : ");
+                    again=scan.next().charAt(0);
+                }
 
             }
+            }
+
+
         else if(option==4){
             System.out.println("\n+---------------------------------------+");
             System.out.println("|         Hexadecimal Converter         |");
@@ -237,5 +355,6 @@ public class Main {
 
         }
         }while(c=='Y');
-    }
+
 }
+    }
