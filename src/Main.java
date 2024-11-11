@@ -441,11 +441,158 @@ public class Main {
 
         }
         else if(option==5){
-            System.out.println("\n+---------------------------------------+");
-            System.out.println("|         Roman Number Converter        |");
-            System.out.println("+---------------------------------------+");
-            
-        }
+                System.out.println("\n+---------------------------------------+");
+                System.out.println("|         Roman Number Converter        |");
+                System.out.println("+---------------------------------------+");
+                    System.out.println("\n\t\t[01] Decimal Number to Roman Number Converter");
+                    System.out.println("\n\t\t[01] Roman Number to Decimal Number Converter");
+                    System.out.print("\n\nEnter Option -> ");
+                    int option2 = scan.nextInt();
+                  char again = 'Y';
+                while (again == 'Y') {
+                    if (option2 == 1) {
+                        System.out.println("\n+-------------------------------------------------------+");
+                        System.out.println("|        Decimal Number to Roman Number Converter       |");
+                        System.out.println("+-------------------------------------------------------+");
+
+                        int num3;
+                        int num4, num5 = 0, num6;
+
+
+                        System.out.print("\nEnter the number :");
+                        int num = scan.nextInt();
+                        if (num > 0) {
+                            int num2 = num;
+
+                            // while(num2!=0){
+                            if (num2 >= 100) {
+                                num5 = num2 / 100;
+                                for (int r = 0; r < num5; r++) {
+                                    if (num5 == 4) {
+                                        System.out.print("CD");
+                                        break;
+                                    }
+                                    if (num5 >= 5) {
+                                        if (num5 < 9) {
+                                            System.out.print("D");
+                                            int e = num2 - 500;
+                                            e = e / 100;
+                                            for (int f = 0; f < e; f++) {
+                                                System.out.print("C");
+                                            }
+                                        } else {
+                                            if (num2 == 1000) {
+                                                System.out.print("M");
+                                            } else {
+                                                System.out.print("CM");
+                                            }
+
+                                        }
+                                        break;
+                                    }
+                                    System.out.print("C");
+                                }
+
+                                num2 = num % 100;
+                            }
+                            if (num2 < 100) {
+
+
+                                num5 = num2 / 10;
+                                for (int z = 0; z < num5; z++) {
+                                    if (num5 == 4) {
+                                        System.out.print("XL");
+                                        break;
+                                    }
+                                    if (num5 >= 5) {
+                                        if (num5 < 9) {
+                                            System.out.print("L");
+                                            if (num2 / 60 > 0 && num % 60 <= 29) {
+                                                int t = num2 - 50;
+                                                t = t / 10;
+                                                for (int f = 0; f < t; f++) {
+                                                    System.out.print("X");
+                                                }
+                                            }
+                                        } else {
+                                            System.out.print("XC");
+                                        }
+
+                                        break;
+                                    } else {
+                                        System.out.print("X");
+                                    }
+
+
+                                }
+                                num5 = num2 % 10;
+                                //  break;
+                                //  }
+
+                                for (int x = 0; x < num5; x++) {
+
+                                    num3 = num5 / 5;
+                                    num4 = num5 % 5;
+
+                                    num2 = num4;
+                                    if (num5 == 5 || (num5 > 5 && num5 < 9)) {
+                                        System.out.print("V");
+
+                                    }
+                                    if (num5 == 10) {
+                                        System.out.print("X");
+
+                                    }
+                                    if (num5 == 4) {
+
+                                        System.out.print("IV");
+
+                                    }
+                                    if (num5 == 9) {
+                                        System.out.print("IX");
+
+                                    }
+                                    if (num2 < 4) {
+                                        for (x = 0; x < num2; x++) {
+
+                                            System.out.print("I");
+                                        }
+
+                                    }
+                                    if (num3 > 1 && num4 < 4) {
+                                        for (x = 0; x < num3; x++) {
+
+                                            System.out.print("V");
+                                        }
+                                        for (x = 0; x < num4; x++) {
+
+                                            System.out.print("I");
+                                        }
+
+                                    }
+
+                                    break;
+                                }
+
+                            }
+                            System.out.print("\n\nDo you want to go to homepage (Y/N) ->  : ");
+                            c = scan.next().charAt(0);
+                            break;
+                        } else {
+                            System.out.println("invalid input...");
+                            System.out.print("\n\nDo you want to input number again(Y/N) ->  : ");
+                            again = scan.next().charAt(0);
+                        }
+
+                    } else if (option2 == 2) {
+
+                    } else {
+
+                        System.out.println("invalid input...");
+
+                    }
+                }
+            }
         else{
             System.out.print("Invalid number try again!!!!!");
 
